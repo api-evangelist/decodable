@@ -1,0 +1,381 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "Decodable Control Plane API",
+    "version": "v1alpha2"
+  },
+  "request": {
+    "auth": {
+      "type": "bearer",
+      "token": "{{bearerToken}}"
+    }
+  },
+  "items": [
+    {
+      "info": {
+        "name": "Connections",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "List connections",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://{{account}}.api.decodable.co/v1alpha2/connections/"
+          },
+          "docs": "Returns the connections defined in the account."
+        },
+        {
+          "info": {
+            "name": "Create a connection",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://{{account}}.api.decodable.co/v1alpha2/connections/",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Creates a new source or sink connection."
+        },
+        {
+          "info": {
+            "name": "Get a connection",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://{{account}}.api.decodable.co/v1alpha2/connections/{{connection_id}}"
+          },
+          "docs": "Returns a single connection by id."
+        },
+        {
+          "info": {
+            "name": "Update a connection",
+            "type": "http"
+          },
+          "http": {
+            "method": "PUT",
+            "url": "https://{{account}}.api.decodable.co/v1alpha2/connections/{{connection_id}}",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Updates an existing connection."
+        },
+        {
+          "info": {
+            "name": "Delete a connection",
+            "type": "http"
+          },
+          "http": {
+            "method": "DELETE",
+            "url": "https://{{account}}.api.decodable.co/v1alpha2/connections/{{connection_id}}"
+          },
+          "docs": "Deletes a connection."
+        },
+        {
+          "info": {
+            "name": "Activate a connection",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://{{account}}.api.decodable.co/v1alpha2/connections/{{connection_id}}/activate",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Starts the connection, optionally setting task size and count."
+        },
+        {
+          "info": {
+            "name": "Deactivate a connection",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://{{account}}.api.decodable.co/v1alpha2/connections/{{connection_id}}/deactivate"
+          },
+          "docs": "Stops the connection."
+        }
+      ]
+    },
+    {
+      "info": {
+        "name": "Streams",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "List streams",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://{{account}}.api.decodable.co/v1alpha2/streams/"
+          },
+          "docs": "Returns the streams defined in the account."
+        },
+        {
+          "info": {
+            "name": "Create a stream",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://{{account}}.api.decodable.co/v1alpha2/streams/",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Creates a new stream."
+        },
+        {
+          "info": {
+            "name": "Get a stream",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://{{account}}.api.decodable.co/v1alpha2/streams/{{stream_id}}"
+          },
+          "docs": "Returns a single stream by id."
+        },
+        {
+          "info": {
+            "name": "Update a stream",
+            "type": "http"
+          },
+          "http": {
+            "method": "PUT",
+            "url": "https://{{account}}.api.decodable.co/v1alpha2/streams/{{stream_id}}",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Updates an existing stream."
+        },
+        {
+          "info": {
+            "name": "Delete a stream",
+            "type": "http"
+          },
+          "http": {
+            "method": "DELETE",
+            "url": "https://{{account}}.api.decodable.co/v1alpha2/streams/{{stream_id}}"
+          },
+          "docs": "Deletes a stream."
+        },
+        {
+          "info": {
+            "name": "Create a stream preview token",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://{{account}}.api.decodable.co/v1alpha2/streams/{{stream_id}}/preview/token"
+          },
+          "docs": "Returns a short-lived data-plane token for previewing live stream records."
+        }
+      ]
+    },
+    {
+      "info": {
+        "name": "Pipelines",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "List pipelines",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://{{account}}.api.decodable.co/v1alpha2/pipelines/"
+          },
+          "docs": "Returns the pipelines defined in the account."
+        },
+        {
+          "info": {
+            "name": "Create a pipeline",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://{{account}}.api.decodable.co/v1alpha2/pipelines/",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Creates a new SQL or Flink pipeline."
+        },
+        {
+          "info": {
+            "name": "Get a pipeline",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://{{account}}.api.decodable.co/v1alpha2/pipelines/{{pipeline_id}}"
+          },
+          "docs": "Returns a single pipeline by id."
+        },
+        {
+          "info": {
+            "name": "Update a pipeline",
+            "type": "http"
+          },
+          "http": {
+            "method": "PUT",
+            "url": "https://{{account}}.api.decodable.co/v1alpha2/pipelines/{{pipeline_id}}",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Updates an existing pipeline."
+        },
+        {
+          "info": {
+            "name": "Delete a pipeline",
+            "type": "http"
+          },
+          "http": {
+            "method": "DELETE",
+            "url": "https://{{account}}.api.decodable.co/v1alpha2/pipelines/{{pipeline_id}}"
+          },
+          "docs": "Deletes a pipeline."
+        },
+        {
+          "info": {
+            "name": "Activate a pipeline",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://{{account}}.api.decodable.co/v1alpha2/pipelines/{{pipeline_id}}/activate",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Starts the pipeline, optionally setting task size and count."
+        },
+        {
+          "info": {
+            "name": "Deactivate a pipeline",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://{{account}}.api.decodable.co/v1alpha2/pipelines/{{pipeline_id}}/deactivate"
+          },
+          "docs": "Stops the pipeline."
+        }
+      ]
+    },
+    {
+      "info": {
+        "name": "Secrets",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "List secrets",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://{{account}}.api.decodable.co/v1alpha2/secrets/"
+          },
+          "docs": "Returns secret metadata (values are not returned)."
+        },
+        {
+          "info": {
+            "name": "Create a secret",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://{{account}}.api.decodable.co/v1alpha2/secrets/",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Creates a new secret."
+        },
+        {
+          "info": {
+            "name": "Get a secret",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://{{account}}.api.decodable.co/v1alpha2/secrets/{{secret_id}}"
+          },
+          "docs": "Returns secret metadata by id."
+        },
+        {
+          "info": {
+            "name": "Update a secret",
+            "type": "http"
+          },
+          "http": {
+            "method": "PUT",
+            "url": "https://{{account}}.api.decodable.co/v1alpha2/secrets/{{secret_id}}",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Updates an existing secret."
+        },
+        {
+          "info": {
+            "name": "Delete a secret",
+            "type": "http"
+          },
+          "http": {
+            "method": "DELETE",
+            "url": "https://{{account}}.api.decodable.co/v1alpha2/secrets/{{secret_id}}"
+          },
+          "docs": "Deletes a secret."
+        }
+      ]
+    },
+    {
+      "info": {
+        "name": "Resources",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Get account details",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://{{account}}.api.decodable.co/v1alpha2/accounts/{{account_name}}"
+          },
+          "docs": "Returns account details, including the data_plane_hostname."
+        }
+      ]
+    }
+  ]
+}

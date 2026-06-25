@@ -1,0 +1,93 @@
+specification: FinOps Framework
+specificationVersion: '1.0'
+schema: https://www.finops.org/framework/
+provider: Decodable
+providerId: decodable
+created: '2026-06-21'
+modified: '2026-06-21'
+reconciled: true
+tags:
+- Stream Processing
+- Apache Flink
+- Debezium
+- Real Time Data
+- Data Pipelines
+- CDC
+- FinOps
+- Cost Management
+- FOCUS
+description: >-
+  FinOps view of Decodable spend. Decodable bills consumption in credits tied to
+  active task-hours, where task size (Small=1, Medium=2, Large=4 credits/hour)
+  determines the credit burn rate, metered in one-minute increments. The Free
+  plan is $0/credit with capped concurrency; On Demand bills $0.12/credit
+  monthly pay-as-you-go; Enterprise bills $0.10/credit with annual committed
+  capacity. Inactive connections and pipelines incur no charges, making
+  activation/deactivation a primary cost lever.
+notes: >-
+  Credit rates and task sizing are subject to change; verify against the
+  Decodable pricing page during reconciliation.
+sources:
+- https://www.decodable.co/pricing
+- https://docs.decodable.co
+- https://focus.finops.org/focus-specification/v1-3/
+alignedWith:
+  framework: FinOps Foundation Framework
+  frameworkUrl: https://www.finops.org/framework/
+  dataSpec: FOCUS
+  dataSpecVersion: '1.3'
+  dataSpecUrl: https://focus.finops.org/focus-specification/v1-3/
+publisherName: Decodable
+serviceCategory: Analytics
+billingModel:
+  pricingCategory: Usage-Based
+  billingFrequency: Monthly
+  billingCurrency: USD
+  chargeCategories:
+  - Usage
+  - Purchase
+  - Adjustment
+focusColumns:
+  ServiceName: Decodable
+  ServiceCategory: Analytics
+  ProviderName: Decodable
+  PublisherName: Decodable
+  InvoiceIssuerName: Decodable
+  BillingCurrency: USD
+  ChargeCategory: Usage
+  PricingCategory: Usage-Based
+meters:
+- name: credit_hours
+  description: Credits consumed per active task-hour, scaled by task size, metered in one-minute increments.
+  unit: credit_hours
+  aggregation: sum
+  dimensions:
+  - account
+  - resource_type
+  - task_size
+- name: active_tasks
+  description: Count of concurrently active tasks across connections and pipelines.
+  unit: tasks
+  aggregation: max
+  dimensions:
+  - account
+  - resource_type
+- name: stream_storage
+  description: Stream data retained against the plan retention window and size cap.
+  unit: bytes
+  aggregation: max
+  dimensions:
+  - account
+  - stream
+principles:
+- name: Visibility
+  description: Track credit burn by task size and resource; review which connections/pipelines drive active task-hours.
+- name: Allocation
+  description: Map connections, pipelines, and streams to teams/workloads; attribute credit consumption to cost centers.
+- name: Optimization
+  description: Deactivate idle connections/pipelines (inactive incurs no charge); right-size tasks (Small vs Large); commit to Enterprise credits for steady workloads.
+- name: Accountability
+  description: Assign owners per pipeline; review monthly credit spend against budget and committed capacity.
+maintainers:
+- FN: Kin Lane
+  email: kin@apievangelist.com

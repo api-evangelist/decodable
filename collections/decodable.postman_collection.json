@@ -1,0 +1,376 @@
+{
+  "info": {
+    "name": "Decodable Control Plane API",
+    "description": "REST API for the Decodable managed stream-processing platform (Apache Flink / Debezium). Control-plane base URL is account-scoped (https://{{account}}.api.decodable.co) and uses Bearer access-token authentication.",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+  },
+  "auth": {
+    "type": "bearer",
+    "bearer": [
+      {
+        "key": "token",
+        "value": "{{bearerToken}}",
+        "type": "string"
+      }
+    ]
+  },
+  "variable": [
+    {
+      "key": "baseUrl",
+      "value": "https://{{account}}.api.decodable.co"
+    },
+    {
+      "key": "account",
+      "value": "acme-01"
+    }
+  ],
+  "item": [
+    {
+      "name": "Connections",
+      "item": [
+        {
+          "name": "List connections",
+          "request": {
+            "method": "GET",
+            "header": [{ "key": "Accept", "value": "application/json" }],
+            "url": {
+              "raw": "{{baseUrl}}/v1alpha2/connections/",
+              "host": ["{{baseUrl}}"],
+              "path": ["v1alpha2", "connections", ""]
+            }
+          }
+        },
+        {
+          "name": "Create a connection",
+          "request": {
+            "method": "POST",
+            "header": [{ "key": "Content-Type", "value": "application/json" }],
+            "body": { "mode": "raw", "raw": "{}", "options": { "raw": { "language": "json" } } },
+            "url": {
+              "raw": "{{baseUrl}}/v1alpha2/connections/",
+              "host": ["{{baseUrl}}"],
+              "path": ["v1alpha2", "connections", ""]
+            }
+          }
+        },
+        {
+          "name": "Get a connection",
+          "request": {
+            "method": "GET",
+            "header": [{ "key": "Accept", "value": "application/json" }],
+            "url": {
+              "raw": "{{baseUrl}}/v1alpha2/connections/{{connection_id}}",
+              "host": ["{{baseUrl}}"],
+              "path": ["v1alpha2", "connections", "{{connection_id}}"]
+            }
+          }
+        },
+        {
+          "name": "Update a connection",
+          "request": {
+            "method": "PUT",
+            "header": [{ "key": "Content-Type", "value": "application/json" }],
+            "body": { "mode": "raw", "raw": "{}", "options": { "raw": { "language": "json" } } },
+            "url": {
+              "raw": "{{baseUrl}}/v1alpha2/connections/{{connection_id}}",
+              "host": ["{{baseUrl}}"],
+              "path": ["v1alpha2", "connections", "{{connection_id}}"]
+            }
+          }
+        },
+        {
+          "name": "Delete a connection",
+          "request": {
+            "method": "DELETE",
+            "header": [],
+            "url": {
+              "raw": "{{baseUrl}}/v1alpha2/connections/{{connection_id}}",
+              "host": ["{{baseUrl}}"],
+              "path": ["v1alpha2", "connections", "{{connection_id}}"]
+            }
+          }
+        },
+        {
+          "name": "Activate a connection",
+          "request": {
+            "method": "POST",
+            "header": [{ "key": "Content-Type", "value": "application/json" }],
+            "body": { "mode": "raw", "raw": "{}", "options": { "raw": { "language": "json" } } },
+            "url": {
+              "raw": "{{baseUrl}}/v1alpha2/connections/{{connection_id}}/activate",
+              "host": ["{{baseUrl}}"],
+              "path": ["v1alpha2", "connections", "{{connection_id}}", "activate"]
+            }
+          }
+        },
+        {
+          "name": "Deactivate a connection",
+          "request": {
+            "method": "POST",
+            "header": [],
+            "url": {
+              "raw": "{{baseUrl}}/v1alpha2/connections/{{connection_id}}/deactivate",
+              "host": ["{{baseUrl}}"],
+              "path": ["v1alpha2", "connections", "{{connection_id}}", "deactivate"]
+            }
+          }
+        }
+      ]
+    },
+    {
+      "name": "Streams",
+      "item": [
+        {
+          "name": "List streams",
+          "request": {
+            "method": "GET",
+            "header": [{ "key": "Accept", "value": "application/json" }],
+            "url": {
+              "raw": "{{baseUrl}}/v1alpha2/streams/",
+              "host": ["{{baseUrl}}"],
+              "path": ["v1alpha2", "streams", ""]
+            }
+          }
+        },
+        {
+          "name": "Create a stream",
+          "request": {
+            "method": "POST",
+            "header": [{ "key": "Content-Type", "value": "application/json" }],
+            "body": { "mode": "raw", "raw": "{}", "options": { "raw": { "language": "json" } } },
+            "url": {
+              "raw": "{{baseUrl}}/v1alpha2/streams/",
+              "host": ["{{baseUrl}}"],
+              "path": ["v1alpha2", "streams", ""]
+            }
+          }
+        },
+        {
+          "name": "Get a stream",
+          "request": {
+            "method": "GET",
+            "header": [{ "key": "Accept", "value": "application/json" }],
+            "url": {
+              "raw": "{{baseUrl}}/v1alpha2/streams/{{stream_id}}",
+              "host": ["{{baseUrl}}"],
+              "path": ["v1alpha2", "streams", "{{stream_id}}"]
+            }
+          }
+        },
+        {
+          "name": "Update a stream",
+          "request": {
+            "method": "PUT",
+            "header": [{ "key": "Content-Type", "value": "application/json" }],
+            "body": { "mode": "raw", "raw": "{}", "options": { "raw": { "language": "json" } } },
+            "url": {
+              "raw": "{{baseUrl}}/v1alpha2/streams/{{stream_id}}",
+              "host": ["{{baseUrl}}"],
+              "path": ["v1alpha2", "streams", "{{stream_id}}"]
+            }
+          }
+        },
+        {
+          "name": "Delete a stream",
+          "request": {
+            "method": "DELETE",
+            "header": [],
+            "url": {
+              "raw": "{{baseUrl}}/v1alpha2/streams/{{stream_id}}",
+              "host": ["{{baseUrl}}"],
+              "path": ["v1alpha2", "streams", "{{stream_id}}"]
+            }
+          }
+        },
+        {
+          "name": "Create a stream preview token",
+          "request": {
+            "method": "POST",
+            "header": [{ "key": "Content-Type", "value": "application/json" }],
+            "url": {
+              "raw": "{{baseUrl}}/v1alpha2/streams/{{stream_id}}/preview/token",
+              "host": ["{{baseUrl}}"],
+              "path": ["v1alpha2", "streams", "{{stream_id}}", "preview", "token"]
+            }
+          }
+        }
+      ]
+    },
+    {
+      "name": "Pipelines",
+      "item": [
+        {
+          "name": "List pipelines",
+          "request": {
+            "method": "GET",
+            "header": [{ "key": "Accept", "value": "application/json" }],
+            "url": {
+              "raw": "{{baseUrl}}/v1alpha2/pipelines/",
+              "host": ["{{baseUrl}}"],
+              "path": ["v1alpha2", "pipelines", ""]
+            }
+          }
+        },
+        {
+          "name": "Create a pipeline",
+          "request": {
+            "method": "POST",
+            "header": [{ "key": "Content-Type", "value": "application/json" }],
+            "body": { "mode": "raw", "raw": "{}", "options": { "raw": { "language": "json" } } },
+            "url": {
+              "raw": "{{baseUrl}}/v1alpha2/pipelines/",
+              "host": ["{{baseUrl}}"],
+              "path": ["v1alpha2", "pipelines", ""]
+            }
+          }
+        },
+        {
+          "name": "Get a pipeline",
+          "request": {
+            "method": "GET",
+            "header": [{ "key": "Accept", "value": "application/json" }],
+            "url": {
+              "raw": "{{baseUrl}}/v1alpha2/pipelines/{{pipeline_id}}",
+              "host": ["{{baseUrl}}"],
+              "path": ["v1alpha2", "pipelines", "{{pipeline_id}}"]
+            }
+          }
+        },
+        {
+          "name": "Update a pipeline",
+          "request": {
+            "method": "PUT",
+            "header": [{ "key": "Content-Type", "value": "application/json" }],
+            "body": { "mode": "raw", "raw": "{}", "options": { "raw": { "language": "json" } } },
+            "url": {
+              "raw": "{{baseUrl}}/v1alpha2/pipelines/{{pipeline_id}}",
+              "host": ["{{baseUrl}}"],
+              "path": ["v1alpha2", "pipelines", "{{pipeline_id}}"]
+            }
+          }
+        },
+        {
+          "name": "Delete a pipeline",
+          "request": {
+            "method": "DELETE",
+            "header": [],
+            "url": {
+              "raw": "{{baseUrl}}/v1alpha2/pipelines/{{pipeline_id}}",
+              "host": ["{{baseUrl}}"],
+              "path": ["v1alpha2", "pipelines", "{{pipeline_id}}"]
+            }
+          }
+        },
+        {
+          "name": "Activate a pipeline",
+          "request": {
+            "method": "POST",
+            "header": [{ "key": "Content-Type", "value": "application/json" }],
+            "body": { "mode": "raw", "raw": "{}", "options": { "raw": { "language": "json" } } },
+            "url": {
+              "raw": "{{baseUrl}}/v1alpha2/pipelines/{{pipeline_id}}/activate",
+              "host": ["{{baseUrl}}"],
+              "path": ["v1alpha2", "pipelines", "{{pipeline_id}}", "activate"]
+            }
+          }
+        },
+        {
+          "name": "Deactivate a pipeline",
+          "request": {
+            "method": "POST",
+            "header": [],
+            "url": {
+              "raw": "{{baseUrl}}/v1alpha2/pipelines/{{pipeline_id}}/deactivate",
+              "host": ["{{baseUrl}}"],
+              "path": ["v1alpha2", "pipelines", "{{pipeline_id}}", "deactivate"]
+            }
+          }
+        }
+      ]
+    },
+    {
+      "name": "Secrets",
+      "item": [
+        {
+          "name": "List secrets",
+          "request": {
+            "method": "GET",
+            "header": [{ "key": "Accept", "value": "application/json" }],
+            "url": {
+              "raw": "{{baseUrl}}/v1alpha2/secrets/",
+              "host": ["{{baseUrl}}"],
+              "path": ["v1alpha2", "secrets", ""]
+            }
+          }
+        },
+        {
+          "name": "Create a secret",
+          "request": {
+            "method": "POST",
+            "header": [{ "key": "Content-Type", "value": "application/json" }],
+            "body": { "mode": "raw", "raw": "{}", "options": { "raw": { "language": "json" } } },
+            "url": {
+              "raw": "{{baseUrl}}/v1alpha2/secrets/",
+              "host": ["{{baseUrl}}"],
+              "path": ["v1alpha2", "secrets", ""]
+            }
+          }
+        },
+        {
+          "name": "Get a secret",
+          "request": {
+            "method": "GET",
+            "header": [{ "key": "Accept", "value": "application/json" }],
+            "url": {
+              "raw": "{{baseUrl}}/v1alpha2/secrets/{{secret_id}}",
+              "host": ["{{baseUrl}}"],
+              "path": ["v1alpha2", "secrets", "{{secret_id}}"]
+            }
+          }
+        },
+        {
+          "name": "Update a secret",
+          "request": {
+            "method": "PUT",
+            "header": [{ "key": "Content-Type", "value": "application/json" }],
+            "body": { "mode": "raw", "raw": "{}", "options": { "raw": { "language": "json" } } },
+            "url": {
+              "raw": "{{baseUrl}}/v1alpha2/secrets/{{secret_id}}",
+              "host": ["{{baseUrl}}"],
+              "path": ["v1alpha2", "secrets", "{{secret_id}}"]
+            }
+          }
+        },
+        {
+          "name": "Delete a secret",
+          "request": {
+            "method": "DELETE",
+            "header": [],
+            "url": {
+              "raw": "{{baseUrl}}/v1alpha2/secrets/{{secret_id}}",
+              "host": ["{{baseUrl}}"],
+              "path": ["v1alpha2", "secrets", "{{secret_id}}"]
+            }
+          }
+        }
+      ]
+    },
+    {
+      "name": "Resources",
+      "item": [
+        {
+          "name": "Get account details",
+          "request": {
+            "method": "GET",
+            "header": [{ "key": "Accept", "value": "application/json" }],
+            "url": {
+              "raw": "{{baseUrl}}/v1alpha2/accounts/{{account_name}}",
+              "host": ["{{baseUrl}}"],
+              "path": ["v1alpha2", "accounts", "{{account_name}}"]
+            }
+          }
+        }
+      ]
+    }
+  ]
+}

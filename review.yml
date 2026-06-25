@@ -1,0 +1,74 @@
+aid: decodable
+name: Decodable
+review:
+  question: Does Decodable expose a documented public WebSocket API?
+  answer: false
+  date: '2026-06-21'
+  reviewer: API Evangelist
+  asyncapiSpecCreated: false
+  asyncapiScopeNote: |
+    Decodable is a stream-processing platform, but its public, documented
+    programmatic surface is a REST (HTTPS) control-plane API plus a REST
+    (HTTPS) data-plane API. No WebSocket (ws:// or wss://) endpoint and no
+    HTTP Server-Sent Events (SSE) endpoint are documented as part of the
+    public API, so no AsyncAPI document was created. Stream data is moved by
+    Decodable connections to/from external systems (Kafka, CDC sources, S3,
+    etc.) rather than via a public realtime socket to the caller.
+findings:
+  summary: |
+    Decodable does not publish a documented public WebSocket API. The
+    platform exposes a REST control-plane API under
+    https://<account>.api.decodable.co/v1alpha2 (connections, streams,
+    pipelines, secrets, accounts) and a REST data-plane API under an
+    account-specific data-plane host (data_plane_hostname) for operations
+    such as posting events to a REST connection and previewing stream data.
+    All documented endpoints are HTTPS REST. Bearer-token authentication is
+    used throughout, with data-plane requests using a short-lived token
+    signed by the control plane. No realtime bidirectional WebSocket surface
+    is documented as of the review date.
+  transports:
+    - protocol: REST
+      scheme: https
+      baseURL: https://<account>.api.decodable.co/v1alpha2
+      documented: true
+    - protocol: REST
+      scheme: https
+      note: Account-specific data-plane host (data_plane_hostname) for event ingest and stream preview, e.g. https://<number>.api.data.decodable.co/v1alpha2/connections/<connection_id>/events.
+      documented: true
+    - protocol: WebSocket
+      scheme: wss
+      documented: false
+      note: No WebSocket endpoint is documented in Decodable's API reference, connector docs, or CLI docs as of the review date.
+    - protocol: SSE
+      scheme: https
+      documented: false
+      note: No HTTP Server-Sent Events streaming endpoint is documented for the public API.
+  endpointsConfirmedRest:
+    - GET    https://<account>.api.decodable.co/v1alpha2/connections/
+    - POST   https://<account>.api.decodable.co/v1alpha2/connections/
+    - POST   https://<account>.api.decodable.co/v1alpha2/connections/<connection_id>/activate
+    - POST   https://<account>.api.decodable.co/v1alpha2/streams/<stream_id>/preview/token
+    - GET    https://<account>.api.decodable.co/v1alpha2/accounts/<account_name>
+    - POST   https://<number>.api.data.decodable.co/v1alpha2/connections/<connection_id>/events
+sources:
+  - url: https://docs.decodable.co/api/the-decodable-apis.html
+    type: APIReference
+    note: Describes control-plane and data-plane REST APIs, base URL pattern, Bearer auth, and data_plane_hostname retrieval. No WebSocket mentioned.
+  - url: https://docs.decodable.co/connect/create.html
+    type: Documentation
+    note: Connection create/activate via POST to /v1alpha2/connections/ and /activate; all HTTPS REST.
+  - url: https://docs.decodable.co/connect/source/rest.html
+    type: Documentation
+    note: REST connector ingests data via HTTPS POST to the data-plane /events endpoint; no WebSocket.
+  - url: https://docs.decodable.co/cli.html
+    type: Documentation
+    note: CLI manages connections, streams, pipelines, secrets over the REST API; no WebSocket surface.
+actions:
+  asyncapiPath: null
+  apisYmlUpdated: true
+  reason: |
+    No WebSocket protocol surface and no public SSE streaming endpoint exist.
+    Decodable's public, documented programmatic interface is REST-only
+    (control plane + data plane over HTTPS), so no AsyncAPI document was
+    authored. The apis.yml catalogs the five REST API surfaces (Connections,
+    Streams, Pipelines, Secrets, Resources) with the account-scoped base URL.

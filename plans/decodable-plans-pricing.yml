@@ -1,0 +1,146 @@
+specification: API Commons Plans
+specificationVersion: '0.1'
+schema: https://raw.githubusercontent.com/api-evangelist/interface-research/main/schema/api-commons.yml#/$defs/Plans
+provider: Decodable
+providerId: decodable
+created: '2026-06-21'
+modified: '2026-06-21'
+reconciled: true
+tags:
+- Stream Processing
+- Apache Flink
+- Debezium
+- Real Time Data
+- Data Pipelines
+- CDC
+- Plans
+description: >-
+  Decodable prices the platform on compute consumption measured in credits. A
+  task consumes credits per active hour by size - Small (1 credit/hr), Medium
+  (2 credits/hr), Large (4 credits/hr) - billed in one-minute increments, so you
+  only pay for active tasks. A free Developer plan offers serverless SQL
+  pipelines at no cost with capped concurrency and retention. The On Demand plan
+  bills monthly pay-as-you-go per credit-hour and unlocks SQL plus Java/Python.
+  The Enterprise plan offers the best per-credit rate with annual committed
+  capacity, custom task sizes, and BYOC deployment.
+notes: >-
+  Credit rates and limits are as published on the Decodable pricing page; verify
+  the page for the current rates, task sizes, and tier limits.
+sources:
+- https://www.decodable.co/pricing
+- https://docs.decodable.co
+plans:
+- id: decodable-free
+  name: Free
+  type: free
+  description: >-
+    Serverless control and data plane for SQL transformations at no cost, with
+    capped concurrency, retention, and stream count. Community (best-effort)
+    support.
+  entries:
+  - label: Credit Rate
+    name: free_credit
+    type: free
+    metric: credit_hours
+    limit: -1
+    timeFrame: month
+    geo: global
+    unit: 1
+    price: $0 per credit
+    userMultiplied: false
+  - label: Concurrent Tasks
+    name: free_tasks
+    type: free
+    metric: tasks
+    limit: 4
+    timeFrame: month
+    geo: global
+    unit: 1
+    price: included
+    userMultiplied: false
+  - label: Streams
+    name: free_streams
+    type: free
+    metric: streams
+    limit: 20
+    timeFrame: month
+    geo: global
+    unit: 1
+    price: included
+    userMultiplied: false
+  elements:
+  - name: SQL Transformations
+  - name: Serverless Deployment
+  - name: 24-hour / 10GB Stream Retention
+  - name: Community Support
+- id: decodable-on-demand
+  name: On Demand
+  type: usage
+  description: >-
+    Monthly pay-as-you-go billing per credit-hour with unlimited concurrent
+    tasks, SQL plus Java/Python transformations, and email support. 99.9%
+    uptime SLA.
+  entries:
+  - label: Credit Rate
+    name: on_demand_credit
+    type: usage
+    metric: credit_hours
+    limit: -1
+    timeFrame: month
+    geo: global
+    unit: 1
+    price: $0.12 per credit (task-hour)
+    userMultiplied: false
+  - label: Streams
+    name: on_demand_streams
+    type: usage
+    metric: streams
+    limit: 50
+    timeFrame: month
+    geo: global
+    unit: 1
+    price: included
+    userMultiplied: false
+  elements:
+  - name: SQL and Java/Python Transformations
+  - name: Unlimited Concurrent Tasks
+  - name: Serverless Deployment
+  - name: 7-day / 100GB Stream Retention
+  - name: Email Support
+- id: decodable-enterprise
+  name: Enterprise
+  type: enterprise
+  description: >-
+    Annual pre-purchased committed capacity at the best per-credit rate, with
+    unlimited tasks and streams, custom task sizes, serverless or BYOC
+    deployment, 24/7 dedicated support, and a 99.99% uptime SLA.
+  entries:
+  - label: Credit Rate
+    name: enterprise_credit
+    type: usage
+    metric: credit_hours
+    limit: -1
+    timeFrame: year
+    geo: global
+    unit: 1
+    price: $0.10 per credit (committed); volume discounts available
+    userMultiplied: false
+  - label: Enterprise Agreement
+    name: enterprise
+    type: flat
+    metric: contract
+    limit: -1
+    timeFrame: year
+    geo: global
+    unit: 1
+    price: contact sales
+    userMultiplied: false
+  elements:
+  - name: Unlimited Tasks and Streams
+  - name: Custom Task Sizes
+  - name: Serverless or BYOC Deployment
+  - name: Extended Retention Options
+  - name: 24/7 Dedicated Support
+maintainers:
+- FN: Kin Lane
+  email: kin@apievangelist.com

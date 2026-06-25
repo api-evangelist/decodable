@@ -1,0 +1,66 @@
+specification: API Commons Rate Limits
+specificationVersion: '0.1'
+schema: https://raw.githubusercontent.com/api-evangelist/interface-research/main/schema/api-commons.yml#/$defs/RateLimits
+provider: Decodable
+providerId: decodable
+created: '2026-06-21'
+modified: '2026-06-21'
+reconciled: false
+tags:
+- Stream Processing
+- Apache Flink
+- Debezium
+- Real Time Data
+- Data Pipelines
+- CDC
+- Rate Limiting
+- Quotas
+- Throttling
+description: >-
+  Decodable does not publish explicit numeric rate limits for the control-plane
+  REST API. Practical capacity is governed by plan-level resource quotas rather
+  than per-second request limits: the Free plan caps concurrent tasks (4) and
+  streams (20); the On Demand plan caps streams (50) with unlimited concurrent
+  tasks; Enterprise removes task and stream caps. Stream throughput and
+  retention are bounded by plan (e.g. 10GB/24h on Free, 100GB/7-day on On
+  Demand). Specific per-endpoint request limits are not documented and are not
+  reconciled in this artifact.
+notes: >-
+  No documented numeric per-second/per-minute API request limits were found.
+  Verify quota and throttling behavior against Decodable documentation and the
+  account console during reconciliation.
+sources:
+- https://www.decodable.co/pricing
+- https://docs.decodable.co/api/the-decodable-apis.html
+- https://docs.decodable.co
+responseCodes:
+  throttled: 429
+limits:
+- name: Concurrent Tasks
+  scope: account
+  metric: tasks
+  limit: see plan (Free 4; On Demand unlimited; Enterprise unlimited)
+  notes: Task concurrency is a plan-level quota, not a request rate limit.
+- name: Streams
+  scope: account
+  metric: streams
+  limit: see plan (Free 20; On Demand 50; Enterprise unlimited)
+  notes: Maximum number of streams allowed per account by plan.
+- name: Stream Retention / Size
+  scope: account
+  metric: bytes
+  limit: see plan (Free 10GB/24h; On Demand 100GB/7-day)
+  notes: Retention window and per-stream size bounded by plan.
+- name: Control-Plane API Requests
+  scope: account
+  metric: requests
+  limit: see provider documentation
+  notes: No explicit numeric per-second/per-minute API request limit is documented.
+policies:
+- name: Plan-Based Quotas
+  description: Capacity scales with plan; tasks/streams quotas raise from Free to On Demand to Enterprise.
+- name: Backoff Strategy
+  description: Clients should implement exponential backoff with jitter and honor Retry-After on 429 responses.
+maintainers:
+- FN: Kin Lane
+  email: kin@apievangelist.com
