@@ -138,6 +138,16 @@ apis:
     apply model that manages connections, streams, pipelines, and secrets as
     versioned YAML resources.
 common:
+- type: TrustCenter
+  url: security/decodable-trust-center.yml
+- type: VulnerabilityDisclosure
+  url: security/decodable-vulnerability-disclosure.yml
+- type: DomainSecurity
+  url: security/decodable-domain-security.yml
+- type: Authentication
+  url: authentication/decodable-authentication.yml
+- url: https://www.decodable.co/blog/rss.xml
+  type: Blog
 - type: GitHubOrganization
   url: https://github.com/decodableco
 - type: LinkedIn

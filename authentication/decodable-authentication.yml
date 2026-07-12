@@ -1,0 +1,14 @@
+generated: '2026-07-11'
+method: derived
+source: openapi/decodable-openapi.yml
+summary:
+  types:
+  - http
+schemes:
+- name: bearerAuth
+  type: http
+  scheme: bearer
+  description: 'Decodable access token issued after CLI login (stored in ~/.decodable/auth),
+    sent as an Authorization: Bearer header.'
+  sources:
+  - openapi/decodable-openapi.yml
