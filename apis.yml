@@ -138,6 +138,8 @@ apis:
     apply model that manages connections, streams, pipelines, and secrets as
     versioned YAML resources.
 common:
+- type: AgenticAccess
+  url: agentic-access/decodable-agentic-access.yml
 - type: TrustCenter
   url: security/decodable-trust-center.yml
 - type: VulnerabilityDisclosure
