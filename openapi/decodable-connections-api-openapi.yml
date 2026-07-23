@@ -1,0 +1,187 @@
+openapi: 3.0.1
+info:
+  title: Decodable Control Plane Connections API
+  description: 'REST API for the Decodable managed stream-processing platform (built on Apache Flink and Debezium). The control-plane API manages connections, streams, pipelines, secrets, and account-level resources. The control-plane base URL is account-scoped: https://<account>.api.decodable.co. All requests are authenticated with a Bearer access token (the token issued after CLI login, found in ~/.decodable/auth). Endpoints and schemas in this document reflect publicly documented Decodable API behavior; fields not confirmed in public documentation are intentionally omitted rather than fabricated.'
+  termsOfService: https://www.decodable.co/terms-of-service
+  contact:
+    name: Decodable Support
+    url: https://docs.decodable.co
+  version: v1alpha2
+servers:
+- url: https://{account}.api.decodable.co
+  description: Decodable control-plane API (account-scoped)
+  variables:
+    account:
+      default: acme-01
+      description: Your Decodable account name
+security:
+- bearerAuth: []
+tags:
+- name: Connections
+  description: Source and sink connectors between Decodable and external systems.
+paths:
+  /v1alpha2/connections/:
+    get:
+      operationId: listConnections
+      tags:
+      - Connections
+      summary: List connections
+      description: Returns the connections defined in the account.
+      responses:
+        '200':
+          description: A list of connections.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ConnectionList'
+    post:
+      operationId: createConnection
+      tags:
+      - Connections
+      summary: Create a connection
+      description: Creates a new source or sink connection.
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/Connection'
+      responses:
+        '201':
+          description: The created connection.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Connection'
+  /v1alpha2/connections/{connection_id}:
+    parameters:
+    - $ref: '#/components/parameters/ConnectionId'
+    get:
+      operationId: getConnection
+      tags:
+      - Connections
+      summary: Get a connection
+      responses:
+        '200':
+          description: The requested connection.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Connection'
+    put:
+      operationId: updateConnection
+      tags:
+      - Connections
+      summary: Update a connection
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/Connection'
+      responses:
+        '200':
+          description: The updated connection.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Connection'
+    delete:
+      operationId: deleteConnection
+      tags:
+      - Connections
+      summary: Delete a connection
+      responses:
+        '204':
+          description: The connection was deleted.
+  /v1alpha2/connections/{connection_id}/activate:
+    parameters:
+    - $ref: '#/components/parameters/ConnectionId'
+    post:
+      operationId: activateConnection
+      tags:
+      - Connections
+      summary: Activate a connection
+      description: Starts the connection, optionally setting task size and count.
+      requestBody:
+        required: false
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/Execution'
+      responses:
+        '200':
+          description: The connection activation was accepted.
+  /v1alpha2/connections/{connection_id}/deactivate:
+    parameters:
+    - $ref: '#/components/parameters/ConnectionId'
+    post:
+      operationId: deactivateConnection
+      tags:
+      - Connections
+      summary: Deactivate a connection
+      description: Stops the connection.
+      responses:
+        '200':
+          description: The connection deactivation was accepted.
+components:
+  schemas:
+    ConnectionList:
+      type: object
+      properties:
+        items:
+          type: array
+          items:
+            $ref: '#/components/schemas/Connection'
+    Execution:
+      type: object
+      description: Runtime execution settings for a connection or pipeline.
+      properties:
+        active:
+          type: boolean
+        task_count:
+          type: integer
+        task_size:
+          type: string
+          description: The task size (e.g. SMALL, MEDIUM, LARGE).
+    Connection:
+      type: object
+      properties:
+        id:
+          type: string
+          readOnly: true
+        name:
+          type: string
+        description:
+          type: string
+        connector:
+          type: string
+          description: The connector type (e.g. kafka, postgres-cdc, rest, s3).
+        type:
+          type: string
+          description: Whether the connection is a source or a sink.
+          enum:
+          - source
+          - sink
+        stream_id:
+          type: string
+          description: The stream this connection reads from or writes to.
+        properties:
+          type: object
+          additionalProperties:
+            type: string
+          description: Connector-specific configuration properties.
+        execution:
+          $ref: '#/components/schemas/Execution'
+  parameters:
+    ConnectionId:
+      name: connection_id
+      in: path
+      required: true
+      schema:
+        type: string
+  securitySchemes:
+    bearerAuth:
+      type: http
+      scheme: bearer
+      description: 'Decodable access token issued after CLI login (stored in ~/.decodable/auth), sent as an Authorization: Bearer header.'

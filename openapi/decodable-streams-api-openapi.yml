@@ -1,0 +1,150 @@
+openapi: 3.0.1
+info:
+  title: Decodable Control Plane Connections Streams API
+  description: 'REST API for the Decodable managed stream-processing platform (built on Apache Flink and Debezium). The control-plane API manages connections, streams, pipelines, secrets, and account-level resources. The control-plane base URL is account-scoped: https://<account>.api.decodable.co. All requests are authenticated with a Bearer access token (the token issued after CLI login, found in ~/.decodable/auth). Endpoints and schemas in this document reflect publicly documented Decodable API behavior; fields not confirmed in public documentation are intentionally omitted rather than fabricated.'
+  termsOfService: https://www.decodable.co/terms-of-service
+  contact:
+    name: Decodable Support
+    url: https://docs.decodable.co
+  version: v1alpha2
+servers:
+- url: https://{account}.api.decodable.co
+  description: Decodable control-plane API (account-scoped)
+  variables:
+    account:
+      default: acme-01
+      description: Your Decodable account name
+security:
+- bearerAuth: []
+tags:
+- name: Streams
+  description: Typed, schema-bearing channels that carry records.
+paths:
+  /v1alpha2/streams/:
+    get:
+      operationId: listStreams
+      tags:
+      - Streams
+      summary: List streams
+      responses:
+        '200':
+          description: A list of streams.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/StreamList'
+    post:
+      operationId: createStream
+      tags:
+      - Streams
+      summary: Create a stream
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/Stream'
+      responses:
+        '201':
+          description: The created stream.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Stream'
+  /v1alpha2/streams/{stream_id}:
+    parameters:
+    - $ref: '#/components/parameters/StreamId'
+    get:
+      operationId: getStream
+      tags:
+      - Streams
+      summary: Get a stream
+      responses:
+        '200':
+          description: The requested stream.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Stream'
+    put:
+      operationId: updateStream
+      tags:
+      - Streams
+      summary: Update a stream
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/Stream'
+      responses:
+        '200':
+          description: The updated stream.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Stream'
+    delete:
+      operationId: deleteStream
+      tags:
+      - Streams
+      summary: Delete a stream
+      responses:
+        '204':
+          description: The stream was deleted.
+  /v1alpha2/streams/{stream_id}/preview/token:
+    parameters:
+    - $ref: '#/components/parameters/StreamId'
+    post:
+      operationId: createStreamPreviewToken
+      tags:
+      - Streams
+      summary: Create a stream preview token
+      description: Returns a short-lived data-plane token used to preview live records from the stream via the data-plane API.
+      responses:
+        '200':
+          description: A preview token.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Token'
+components:
+  schemas:
+    Token:
+      type: object
+      properties:
+        token:
+          type: string
+          description: A short-lived data-plane request token.
+    StreamList:
+      type: object
+      properties:
+        items:
+          type: array
+          items:
+            $ref: '#/components/schemas/Stream'
+    Stream:
+      type: object
+      properties:
+        id:
+          type: string
+          readOnly: true
+        name:
+          type: string
+        description:
+          type: string
+        schema_v2:
+          type: object
+          description: The stream's typed schema definition.
+  parameters:
+    StreamId:
+      name: stream_id
+      in: path
+      required: true
+      schema:
+        type: string
+  securitySchemes:
+    bearerAuth:
+      type: http
+      scheme: bearer
+      description: 'Decodable access token issued after CLI login (stored in ~/.decodable/auth), sent as an Authorization: Bearer header.'

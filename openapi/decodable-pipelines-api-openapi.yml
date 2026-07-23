@@ -1,0 +1,171 @@
+openapi: 3.0.1
+info:
+  title: Decodable Control Plane Connections Pipelines API
+  description: 'REST API for the Decodable managed stream-processing platform (built on Apache Flink and Debezium). The control-plane API manages connections, streams, pipelines, secrets, and account-level resources. The control-plane base URL is account-scoped: https://<account>.api.decodable.co. All requests are authenticated with a Bearer access token (the token issued after CLI login, found in ~/.decodable/auth). Endpoints and schemas in this document reflect publicly documented Decodable API behavior; fields not confirmed in public documentation are intentionally omitted rather than fabricated.'
+  termsOfService: https://www.decodable.co/terms-of-service
+  contact:
+    name: Decodable Support
+    url: https://docs.decodable.co
+  version: v1alpha2
+servers:
+- url: https://{account}.api.decodable.co
+  description: Decodable control-plane API (account-scoped)
+  variables:
+    account:
+      default: acme-01
+      description: Your Decodable account name
+security:
+- bearerAuth: []
+tags:
+- name: Pipelines
+  description: SQL or custom Apache Flink transformations over streams.
+paths:
+  /v1alpha2/pipelines/:
+    get:
+      operationId: listPipelines
+      tags:
+      - Pipelines
+      summary: List pipelines
+      responses:
+        '200':
+          description: A list of pipelines.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/PipelineList'
+    post:
+      operationId: createPipeline
+      tags:
+      - Pipelines
+      summary: Create a pipeline
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/Pipeline'
+      responses:
+        '201':
+          description: The created pipeline.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Pipeline'
+  /v1alpha2/pipelines/{pipeline_id}:
+    parameters:
+    - $ref: '#/components/parameters/PipelineId'
+    get:
+      operationId: getPipeline
+      tags:
+      - Pipelines
+      summary: Get a pipeline
+      responses:
+        '200':
+          description: The requested pipeline.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Pipeline'
+    put:
+      operationId: updatePipeline
+      tags:
+      - Pipelines
+      summary: Update a pipeline
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/Pipeline'
+      responses:
+        '200':
+          description: The updated pipeline.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Pipeline'
+    delete:
+      operationId: deletePipeline
+      tags:
+      - Pipelines
+      summary: Delete a pipeline
+      responses:
+        '204':
+          description: The pipeline was deleted.
+  /v1alpha2/pipelines/{pipeline_id}/activate:
+    parameters:
+    - $ref: '#/components/parameters/PipelineId'
+    post:
+      operationId: activatePipeline
+      tags:
+      - Pipelines
+      summary: Activate a pipeline
+      description: Starts the pipeline, optionally setting task size and count.
+      requestBody:
+        required: false
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/Execution'
+      responses:
+        '200':
+          description: The pipeline activation was accepted.
+  /v1alpha2/pipelines/{pipeline_id}/deactivate:
+    parameters:
+    - $ref: '#/components/parameters/PipelineId'
+    post:
+      operationId: deactivatePipeline
+      tags:
+      - Pipelines
+      summary: Deactivate a pipeline
+      description: Stops the pipeline.
+      responses:
+        '200':
+          description: The pipeline deactivation was accepted.
+components:
+  schemas:
+    Execution:
+      type: object
+      description: Runtime execution settings for a connection or pipeline.
+      properties:
+        active:
+          type: boolean
+        task_count:
+          type: integer
+        task_size:
+          type: string
+          description: The task size (e.g. SMALL, MEDIUM, LARGE).
+    Pipeline:
+      type: object
+      properties:
+        id:
+          type: string
+          readOnly: true
+        name:
+          type: string
+        description:
+          type: string
+        sql:
+          type: string
+          description: The Decodable SQL that defines the transformation.
+        execution:
+          $ref: '#/components/schemas/Execution'
+    PipelineList:
+      type: object
+      properties:
+        items:
+          type: array
+          items:
+            $ref: '#/components/schemas/Pipeline'
+  parameters:
+    PipelineId:
+      name: pipeline_id
+      in: path
+      required: true
+      schema:
+        type: string
+  securitySchemes:
+    bearerAuth:
+      type: http
+      scheme: bearer
+      description: 'Decodable access token issued after CLI login (stored in ~/.decodable/auth), sent as an Authorization: Bearer header.'

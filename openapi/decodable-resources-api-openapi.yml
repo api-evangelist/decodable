@@ -1,0 +1,58 @@
+openapi: 3.0.1
+info:
+  title: Decodable Control Plane Connections Resources API
+  description: 'REST API for the Decodable managed stream-processing platform (built on Apache Flink and Debezium). The control-plane API manages connections, streams, pipelines, secrets, and account-level resources. The control-plane base URL is account-scoped: https://<account>.api.decodable.co. All requests are authenticated with a Bearer access token (the token issued after CLI login, found in ~/.decodable/auth). Endpoints and schemas in this document reflect publicly documented Decodable API behavior; fields not confirmed in public documentation are intentionally omitted rather than fabricated.'
+  termsOfService: https://www.decodable.co/terms-of-service
+  contact:
+    name: Decodable Support
+    url: https://docs.decodable.co
+  version: v1alpha2
+servers:
+- url: https://{account}.api.decodable.co
+  description: Decodable control-plane API (account-scoped)
+  variables:
+    account:
+      default: acme-01
+      description: Your Decodable account name
+security:
+- bearerAuth: []
+tags:
+- name: Resources
+  description: Account-level and control-plane resource endpoints.
+paths:
+  /v1alpha2/accounts/{account_name}:
+    parameters:
+    - name: account_name
+      in: path
+      required: true
+      description: The Decodable account name.
+      schema:
+        type: string
+    get:
+      operationId: getAccount
+      tags:
+      - Resources
+      summary: Get account details
+      description: Returns account details, including the data_plane_hostname used to construct data-plane API requests.
+      responses:
+        '200':
+          description: The account details.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Account'
+components:
+  schemas:
+    Account:
+      type: object
+      properties:
+        name:
+          type: string
+        data_plane_hostname:
+          type: string
+          description: Host name used to build data-plane API requests.
+  securitySchemes:
+    bearerAuth:
+      type: http
+      scheme: bearer
+      description: 'Decodable access token issued after CLI login (stored in ~/.decodable/auth), sent as an Authorization: Bearer header.'
