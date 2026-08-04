@@ -1,0 +1,22 @@
+{
+  "provider": "decodable",
+  "sources": [
+    "decodable-connections-api-openapi.yml",
+    "decodable-pipelines-api-openapi.yml",
+    "decodable-resources-api-openapi.yml",
+    "decodable-secrets-api-openapi.yml",
+    "decodable-streams-api-openapi.yml"
+  ],
+  "outputs": [
+    "decodable-connections-api-openapi.yml",
+    "decodable-pipelines-api-openapi.yml",
+    "decodable-resources-api-openapi.yml",
+    "decodable-secrets-api-openapi.yml",
+    "decodable-streams-api-openapi.yml"
+  ],
+  "archived": [],
+  "errors": [],
+  "warnings": [],
+  "notes": [],
+  "skipped": []
+}
