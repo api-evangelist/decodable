@@ -1,0 +1,160 @@
+{
+  "item": [
+    {
+      "id": "87fd72f4-cdb9-40f5-aa9f-02251f7daaa4",
+      "name": "Resources",
+      "description": {
+        "content": "Account-level and control-plane resource endpoints.",
+        "type": "text/plain"
+      },
+      "item": [
+        {
+          "id": "4963df94-213b-49a3-8d4f-c65356beb3a9",
+          "name": "Get account details",
+          "request": {
+            "name": "Get account details",
+            "description": {
+              "content": "Returns account details, including the data_plane_hostname used to construct data-plane API requests.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "v1alpha2",
+                "accounts",
+                ":account_name"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "account_name",
+                  "description": "(Required) The Decodable account name."
+                },
+                {
+                  "description": "Your Decodable account name",
+                  "type": "any",
+                  "value": "{{account}}",
+                  "key": "account"
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "b0ba3a93-ba8a-4b07-a901-94bfd22501b8",
+              "name": "The account details.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "v1alpha2",
+                    "accounts",
+                    ":account_name"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "account_name",
+                      "description": "(Required) The Decodable account name."
+                    },
+                    {
+                      "description": "Your Decodable account name",
+                      "type": "any",
+                      "value": "{{account}}",
+                      "key": "account"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"name\": \"string\",\n  \"data_plane_hostname\": \"string\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        }
+      ],
+      "event": []
+    }
+  ],
+  "event": [],
+  "variable": [
+    {
+      "description": {
+        "content": "Your Decodable account name",
+        "type": "text/plain"
+      },
+      "type": "any",
+      "value": "acme-01",
+      "key": "account"
+    },
+    {
+      "type": "string",
+      "value": "https://{{account}}.api.decodable.co",
+      "key": "baseUrl"
+    }
+  ],
+  "auth": {
+    "type": "bearer",
+    "bearer": [
+      {
+        "key": "token",
+        "value": "{{bearerToken}}"
+      }
+    ]
+  },
+  "info": {
+    "_postman_id": "90e213de-cb16-47f0-8425-1bbf66086f50",
+    "name": "Decodable Control Plane Connections Resources API",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "description": {
+      "content": "REST API for the Decodable managed stream-processing platform (built on Apache Flink and Debezium). The control-plane API manages connections, streams, pipelines, secrets, and account-level resources. The control-plane base URL is account-scoped: https://<account>.api.decodable.co. All requests are authenticated with a Bearer access token (the token issued after CLI login, found in ~/.decodable/auth). Endpoints and schemas in this document reflect publicly documented Decodable API behavior; fields not confirmed in public documentation are intentionally omitted rather than fabricated.\n\nContact Support:\n Name: Decodable Support",
+      "type": "text/plain"
+    }
+  }
+}

@@ -1,0 +1,148 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "Decodable Control Plane Connections API",
+    "version": "v1alpha2"
+  },
+  "request": {
+    "auth": {
+      "type": "bearer",
+      "token": "{{bearerToken}}"
+    }
+  },
+  "items": [
+    {
+      "info": {
+        "name": "Connections",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "List connections",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://{account}.api.decodable.co/v1alpha2/connections/"
+          },
+          "docs": "Returns the connections defined in the account."
+        },
+        {
+          "info": {
+            "name": "Create a connection",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://{account}.api.decodable.co/v1alpha2/connections/",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Creates a new source or sink connection."
+        },
+        {
+          "info": {
+            "name": "Get a connection",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://{account}.api.decodable.co/v1alpha2/connections/:connection_id",
+            "params": [
+              {
+                "name": "connection_id",
+                "value": "",
+                "type": "path"
+              }
+            ]
+          },
+          "docs": "Get a connection"
+        },
+        {
+          "info": {
+            "name": "Update a connection",
+            "type": "http"
+          },
+          "http": {
+            "method": "PUT",
+            "url": "https://{account}.api.decodable.co/v1alpha2/connections/:connection_id",
+            "params": [
+              {
+                "name": "connection_id",
+                "value": "",
+                "type": "path"
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Update a connection"
+        },
+        {
+          "info": {
+            "name": "Delete a connection",
+            "type": "http"
+          },
+          "http": {
+            "method": "DELETE",
+            "url": "https://{account}.api.decodable.co/v1alpha2/connections/:connection_id",
+            "params": [
+              {
+                "name": "connection_id",
+                "value": "",
+                "type": "path"
+              }
+            ]
+          },
+          "docs": "Delete a connection"
+        },
+        {
+          "info": {
+            "name": "Activate a connection",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://{account}.api.decodable.co/v1alpha2/connections/:connection_id/activate",
+            "params": [
+              {
+                "name": "connection_id",
+                "value": "",
+                "type": "path"
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Starts the connection, optionally setting task size and count."
+        },
+        {
+          "info": {
+            "name": "Deactivate a connection",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://{account}.api.decodable.co/v1alpha2/connections/:connection_id/deactivate",
+            "params": [
+              {
+                "name": "connection_id",
+                "value": "",
+                "type": "path"
+              }
+            ]
+          },
+          "docs": "Stops the connection."
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

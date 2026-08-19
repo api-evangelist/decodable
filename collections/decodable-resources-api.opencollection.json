@@ -1,0 +1,43 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "Decodable Control Plane Connections Resources API",
+    "version": "v1alpha2"
+  },
+  "request": {
+    "auth": {
+      "type": "bearer",
+      "token": "{{bearerToken}}"
+    }
+  },
+  "items": [
+    {
+      "info": {
+        "name": "Resources",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Get account details",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://{account}.api.decodable.co/v1alpha2/accounts/:account_name",
+            "params": [
+              {
+                "name": "account_name",
+                "value": "",
+                "type": "path",
+                "description": "The Decodable account name."
+              }
+            ]
+          },
+          "docs": "Returns account details, including the data_plane_hostname used to construct data-plane API requests."
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

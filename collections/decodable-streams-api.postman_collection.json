@@ -1,0 +1,703 @@
+{
+  "item": [
+    {
+      "id": "022ff90c-15d1-45e1-bc40-a83a280b5762",
+      "name": "Streams",
+      "description": {
+        "content": "Typed, schema-bearing channels that carry records.",
+        "type": "text/plain"
+      },
+      "item": [
+        {
+          "id": "3a27a931-ac72-47cc-9491-5b860f04e317",
+          "name": "List streams",
+          "request": {
+            "name": "List streams",
+            "description": {},
+            "url": {
+              "path": [
+                "v1alpha2",
+                "streams",
+                ""
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "description": "Your Decodable account name",
+                  "type": "any",
+                  "value": "{{account}}",
+                  "key": "account"
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "78caafcb-a42d-497b-8cce-af194f157614",
+              "name": "A list of streams.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "v1alpha2",
+                    "streams",
+                    ""
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "description": "Your Decodable account name",
+                      "type": "any",
+                      "value": "{{account}}",
+                      "key": "account"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"items\": [\n    {\n      \"id\": \"string\",\n      \"name\": \"string\",\n      \"description\": \"string\",\n      \"schema_v2\": {}\n    },\n    {\n      \"id\": \"string\",\n      \"name\": \"string\",\n      \"description\": \"string\",\n      \"schema_v2\": {}\n    }\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "1b12fa03-9928-4a32-9d32-9ffba626527d",
+          "name": "Create a stream",
+          "request": {
+            "name": "Create a stream",
+            "description": {},
+            "url": {
+              "path": [
+                "v1alpha2",
+                "streams",
+                ""
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "description": "Your Decodable account name",
+                  "type": "any",
+                  "value": "{{account}}",
+                  "key": "account"
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "POST",
+            "auth": null,
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"name\": \"<string>\",\n  \"description\": \"<string>\",\n  \"schema_v2\": \"<object>\"\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "4614f0d9-bd65-4d11-9dac-8f456aa02925",
+              "name": "The created stream.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "v1alpha2",
+                    "streams",
+                    ""
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "description": "Your Decodable account name",
+                      "type": "any",
+                      "value": "{{account}}",
+                      "key": "account"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"name\": \"<string>\",\n  \"description\": \"<string>\",\n  \"schema_v2\": \"<object>\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Created",
+              "code": 201,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"id\": \"string\",\n  \"name\": \"<string>\",\n  \"description\": \"<string>\",\n  \"schema_v2\": \"<object>\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "1519db1e-6501-4acf-9201-fc3e50025ac0",
+          "name": "Get a stream",
+          "request": {
+            "name": "Get a stream",
+            "description": {},
+            "url": {
+              "path": [
+                "v1alpha2",
+                "streams",
+                ":stream_id"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "stream_id",
+                  "description": "(Required) "
+                },
+                {
+                  "description": "Your Decodable account name",
+                  "type": "any",
+                  "value": "{{account}}",
+                  "key": "account"
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "a27a1316-1dbb-4101-9595-5af270b232e0",
+              "name": "The requested stream.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "v1alpha2",
+                    "streams",
+                    ":stream_id"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "stream_id",
+                      "description": "(Required) "
+                    },
+                    {
+                      "description": "Your Decodable account name",
+                      "type": "any",
+                      "value": "{{account}}",
+                      "key": "account"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"id\": \"string\",\n  \"name\": \"<string>\",\n  \"description\": \"<string>\",\n  \"schema_v2\": \"<object>\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "c5f522a4-b193-40b6-b0f3-c5401f6d8f30",
+          "name": "Update a stream",
+          "request": {
+            "name": "Update a stream",
+            "description": {},
+            "url": {
+              "path": [
+                "v1alpha2",
+                "streams",
+                ":stream_id"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "stream_id",
+                  "description": "(Required) "
+                },
+                {
+                  "description": "Your Decodable account name",
+                  "type": "any",
+                  "value": "{{account}}",
+                  "key": "account"
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "PUT",
+            "auth": null,
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"name\": \"<string>\",\n  \"description\": \"<string>\",\n  \"schema_v2\": \"<object>\"\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "f2d77ffb-9435-40a0-9c37-a7a74963eab1",
+              "name": "The updated stream.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "v1alpha2",
+                    "streams",
+                    ":stream_id"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "stream_id",
+                      "description": "(Required) "
+                    },
+                    {
+                      "description": "Your Decodable account name",
+                      "type": "any",
+                      "value": "{{account}}",
+                      "key": "account"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "PUT",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"name\": \"<string>\",\n  \"description\": \"<string>\",\n  \"schema_v2\": \"<object>\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"id\": \"string\",\n  \"name\": \"<string>\",\n  \"description\": \"<string>\",\n  \"schema_v2\": \"<object>\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "78ca8cff-2725-40bd-b27f-20f46529d0fb",
+          "name": "Delete a stream",
+          "request": {
+            "name": "Delete a stream",
+            "description": {},
+            "url": {
+              "path": [
+                "v1alpha2",
+                "streams",
+                ":stream_id"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "stream_id",
+                  "description": "(Required) "
+                },
+                {
+                  "description": "Your Decodable account name",
+                  "type": "any",
+                  "value": "{{account}}",
+                  "key": "account"
+                }
+              ]
+            },
+            "method": "DELETE",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "f6a4b7f0-c5ec-4f63-9f69-82545ecc56c0",
+              "name": "The stream was deleted.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "v1alpha2",
+                    "streams",
+                    ":stream_id"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "stream_id",
+                      "description": "(Required) "
+                    },
+                    {
+                      "description": "Your Decodable account name",
+                      "type": "any",
+                      "value": "{{account}}",
+                      "key": "account"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  }
+                ],
+                "method": "DELETE",
+                "body": {}
+              },
+              "status": "No Content",
+              "code": 204,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "3a3ff6f6-4265-4b39-a93a-a2889cf41d3f",
+          "name": "Create a stream preview token",
+          "request": {
+            "name": "Create a stream preview token",
+            "description": {
+              "content": "Returns a short-lived data-plane token used to preview live records from the stream via the data-plane API.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "v1alpha2",
+                "streams",
+                ":stream_id",
+                "preview",
+                "token"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "stream_id",
+                  "description": "(Required) "
+                },
+                {
+                  "description": "Your Decodable account name",
+                  "type": "any",
+                  "value": "{{account}}",
+                  "key": "account"
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "POST",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "151ee317-e2aa-46ad-9322-ed4314749ff5",
+              "name": "A preview token.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "v1alpha2",
+                    "streams",
+                    ":stream_id",
+                    "preview",
+                    "token"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "stream_id",
+                      "description": "(Required) "
+                    },
+                    {
+                      "description": "Your Decodable account name",
+                      "type": "any",
+                      "value": "{{account}}",
+                      "key": "account"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"token\": \"string\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        }
+      ],
+      "event": []
+    }
+  ],
+  "event": [],
+  "variable": [
+    {
+      "description": {
+        "content": "Your Decodable account name",
+        "type": "text/plain"
+      },
+      "type": "any",
+      "value": "acme-01",
+      "key": "account"
+    },
+    {
+      "type": "string",
+      "value": "https://{{account}}.api.decodable.co",
+      "key": "baseUrl"
+    }
+  ],
+  "auth": {
+    "type": "bearer",
+    "bearer": [
+      {
+        "key": "token",
+        "value": "{{bearerToken}}"
+      }
+    ]
+  },
+  "info": {
+    "_postman_id": "327fd154-316d-4e1e-8927-0722b6a8c2d0",
+    "name": "Decodable Control Plane Connections Streams API",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "description": {
+      "content": "REST API for the Decodable managed stream-processing platform (built on Apache Flink and Debezium). The control-plane API manages connections, streams, pipelines, secrets, and account-level resources. The control-plane base URL is account-scoped: https://<account>.api.decodable.co. All requests are authenticated with a Bearer access token (the token issued after CLI login, found in ~/.decodable/auth). Endpoints and schemas in this document reflect publicly documented Decodable API behavior; fields not confirmed in public documentation are intentionally omitted rather than fabricated.\n\nContact Support:\n Name: Decodable Support",
+      "type": "text/plain"
+    }
+  }
+}

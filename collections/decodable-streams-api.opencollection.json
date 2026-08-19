@@ -1,0 +1,126 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "Decodable Control Plane Connections Streams API",
+    "version": "v1alpha2"
+  },
+  "request": {
+    "auth": {
+      "type": "bearer",
+      "token": "{{bearerToken}}"
+    }
+  },
+  "items": [
+    {
+      "info": {
+        "name": "Streams",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "List streams",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://{account}.api.decodable.co/v1alpha2/streams/"
+          },
+          "docs": "List streams"
+        },
+        {
+          "info": {
+            "name": "Create a stream",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://{account}.api.decodable.co/v1alpha2/streams/",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Create a stream"
+        },
+        {
+          "info": {
+            "name": "Get a stream",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://{account}.api.decodable.co/v1alpha2/streams/:stream_id",
+            "params": [
+              {
+                "name": "stream_id",
+                "value": "",
+                "type": "path"
+              }
+            ]
+          },
+          "docs": "Get a stream"
+        },
+        {
+          "info": {
+            "name": "Update a stream",
+            "type": "http"
+          },
+          "http": {
+            "method": "PUT",
+            "url": "https://{account}.api.decodable.co/v1alpha2/streams/:stream_id",
+            "params": [
+              {
+                "name": "stream_id",
+                "value": "",
+                "type": "path"
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Update a stream"
+        },
+        {
+          "info": {
+            "name": "Delete a stream",
+            "type": "http"
+          },
+          "http": {
+            "method": "DELETE",
+            "url": "https://{account}.api.decodable.co/v1alpha2/streams/:stream_id",
+            "params": [
+              {
+                "name": "stream_id",
+                "value": "",
+                "type": "path"
+              }
+            ]
+          },
+          "docs": "Delete a stream"
+        },
+        {
+          "info": {
+            "name": "Create a stream preview token",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://{account}.api.decodable.co/v1alpha2/streams/:stream_id/preview/token",
+            "params": [
+              {
+                "name": "stream_id",
+                "value": "",
+                "type": "path"
+              }
+            ]
+          },
+          "docs": "Returns a short-lived data-plane token used to preview live records from the stream via the data-plane API."
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

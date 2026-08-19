@@ -1,0 +1,148 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "Decodable Control Plane Connections Pipelines API",
+    "version": "v1alpha2"
+  },
+  "request": {
+    "auth": {
+      "type": "bearer",
+      "token": "{{bearerToken}}"
+    }
+  },
+  "items": [
+    {
+      "info": {
+        "name": "Pipelines",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "List pipelines",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://{account}.api.decodable.co/v1alpha2/pipelines/"
+          },
+          "docs": "List pipelines"
+        },
+        {
+          "info": {
+            "name": "Create a pipeline",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://{account}.api.decodable.co/v1alpha2/pipelines/",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Create a pipeline"
+        },
+        {
+          "info": {
+            "name": "Get a pipeline",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://{account}.api.decodable.co/v1alpha2/pipelines/:pipeline_id",
+            "params": [
+              {
+                "name": "pipeline_id",
+                "value": "",
+                "type": "path"
+              }
+            ]
+          },
+          "docs": "Get a pipeline"
+        },
+        {
+          "info": {
+            "name": "Update a pipeline",
+            "type": "http"
+          },
+          "http": {
+            "method": "PUT",
+            "url": "https://{account}.api.decodable.co/v1alpha2/pipelines/:pipeline_id",
+            "params": [
+              {
+                "name": "pipeline_id",
+                "value": "",
+                "type": "path"
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Update a pipeline"
+        },
+        {
+          "info": {
+            "name": "Delete a pipeline",
+            "type": "http"
+          },
+          "http": {
+            "method": "DELETE",
+            "url": "https://{account}.api.decodable.co/v1alpha2/pipelines/:pipeline_id",
+            "params": [
+              {
+                "name": "pipeline_id",
+                "value": "",
+                "type": "path"
+              }
+            ]
+          },
+          "docs": "Delete a pipeline"
+        },
+        {
+          "info": {
+            "name": "Activate a pipeline",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://{account}.api.decodable.co/v1alpha2/pipelines/:pipeline_id/activate",
+            "params": [
+              {
+                "name": "pipeline_id",
+                "value": "",
+                "type": "path"
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Starts the pipeline, optionally setting task size and count."
+        },
+        {
+          "info": {
+            "name": "Deactivate a pipeline",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://{account}.api.decodable.co/v1alpha2/pipelines/:pipeline_id/deactivate",
+            "params": [
+              {
+                "name": "pipeline_id",
+                "value": "",
+                "type": "path"
+              }
+            ]
+          },
+          "docs": "Stops the pipeline."
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

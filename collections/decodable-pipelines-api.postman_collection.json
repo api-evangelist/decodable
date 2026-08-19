@@ -1,0 +1,816 @@
+{
+  "item": [
+    {
+      "id": "6e749b95-f145-47ee-80e6-e1b005b9c552",
+      "name": "Pipelines",
+      "description": {
+        "content": "SQL or custom Apache Flink transformations over streams.",
+        "type": "text/plain"
+      },
+      "item": [
+        {
+          "id": "29b9fa2d-1292-4bb5-8593-638513c08807",
+          "name": "List pipelines",
+          "request": {
+            "name": "List pipelines",
+            "description": {},
+            "url": {
+              "path": [
+                "v1alpha2",
+                "pipelines",
+                ""
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "description": "Your Decodable account name",
+                  "type": "any",
+                  "value": "{{account}}",
+                  "key": "account"
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "ce556433-0b2b-4a7a-bd07-6c2b121bb34e",
+              "name": "A list of pipelines.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "v1alpha2",
+                    "pipelines",
+                    ""
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "description": "Your Decodable account name",
+                      "type": "any",
+                      "value": "{{account}}",
+                      "key": "account"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"items\": [\n    {\n      \"id\": \"string\",\n      \"name\": \"string\",\n      \"description\": \"string\",\n      \"sql\": \"string\",\n      \"execution\": {\n        \"active\": true,\n        \"task_count\": 4058,\n        \"task_size\": \"string\"\n      }\n    },\n    {\n      \"id\": \"string\",\n      \"name\": \"string\",\n      \"description\": \"string\",\n      \"sql\": \"string\",\n      \"execution\": {\n        \"active\": true,\n        \"task_count\": 9472,\n        \"task_size\": \"string\"\n      }\n    }\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "c6877a16-ec2f-4e32-bb5e-36e6d2ed2dfd",
+          "name": "Create a pipeline",
+          "request": {
+            "name": "Create a pipeline",
+            "description": {},
+            "url": {
+              "path": [
+                "v1alpha2",
+                "pipelines",
+                ""
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "description": "Your Decodable account name",
+                  "type": "any",
+                  "value": "{{account}}",
+                  "key": "account"
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "POST",
+            "auth": null,
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"name\": \"<string>\",\n  \"description\": \"<string>\",\n  \"sql\": \"<string>\",\n  \"execution\": {\n    \"active\": \"<boolean>\",\n    \"task_count\": \"<integer>\",\n    \"task_size\": \"<string>\"\n  }\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "dae59a3d-0425-4bbb-89c8-5e553339dc50",
+              "name": "The created pipeline.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "v1alpha2",
+                    "pipelines",
+                    ""
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "description": "Your Decodable account name",
+                      "type": "any",
+                      "value": "{{account}}",
+                      "key": "account"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"name\": \"<string>\",\n  \"description\": \"<string>\",\n  \"sql\": \"<string>\",\n  \"execution\": {\n    \"active\": \"<boolean>\",\n    \"task_count\": \"<integer>\",\n    \"task_size\": \"<string>\"\n  }\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Created",
+              "code": 201,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"id\": \"string\",\n  \"name\": \"<string>\",\n  \"description\": \"<string>\",\n  \"sql\": \"<string>\",\n  \"execution\": {\n    \"active\": \"<boolean>\",\n    \"task_count\": \"<integer>\",\n    \"task_size\": \"<string>\"\n  }\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "e2464559-301a-439e-8073-e23bda4c40f3",
+          "name": "Get a pipeline",
+          "request": {
+            "name": "Get a pipeline",
+            "description": {},
+            "url": {
+              "path": [
+                "v1alpha2",
+                "pipelines",
+                ":pipeline_id"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "pipeline_id",
+                  "description": "(Required) "
+                },
+                {
+                  "description": "Your Decodable account name",
+                  "type": "any",
+                  "value": "{{account}}",
+                  "key": "account"
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "720b5257-525e-49d5-be20-98a2f75c78ca",
+              "name": "The requested pipeline.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "v1alpha2",
+                    "pipelines",
+                    ":pipeline_id"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "pipeline_id",
+                      "description": "(Required) "
+                    },
+                    {
+                      "description": "Your Decodable account name",
+                      "type": "any",
+                      "value": "{{account}}",
+                      "key": "account"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"id\": \"string\",\n  \"name\": \"<string>\",\n  \"description\": \"<string>\",\n  \"sql\": \"<string>\",\n  \"execution\": {\n    \"active\": \"<boolean>\",\n    \"task_count\": \"<integer>\",\n    \"task_size\": \"<string>\"\n  }\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "27be1dd7-400a-4efc-adf6-396b4e3ea71f",
+          "name": "Update a pipeline",
+          "request": {
+            "name": "Update a pipeline",
+            "description": {},
+            "url": {
+              "path": [
+                "v1alpha2",
+                "pipelines",
+                ":pipeline_id"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "pipeline_id",
+                  "description": "(Required) "
+                },
+                {
+                  "description": "Your Decodable account name",
+                  "type": "any",
+                  "value": "{{account}}",
+                  "key": "account"
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "PUT",
+            "auth": null,
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"name\": \"<string>\",\n  \"description\": \"<string>\",\n  \"sql\": \"<string>\",\n  \"execution\": {\n    \"active\": \"<boolean>\",\n    \"task_count\": \"<integer>\",\n    \"task_size\": \"<string>\"\n  }\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "fa5655b1-1231-49ee-83dd-57797a0d028d",
+              "name": "The updated pipeline.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "v1alpha2",
+                    "pipelines",
+                    ":pipeline_id"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "pipeline_id",
+                      "description": "(Required) "
+                    },
+                    {
+                      "description": "Your Decodable account name",
+                      "type": "any",
+                      "value": "{{account}}",
+                      "key": "account"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "PUT",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"name\": \"<string>\",\n  \"description\": \"<string>\",\n  \"sql\": \"<string>\",\n  \"execution\": {\n    \"active\": \"<boolean>\",\n    \"task_count\": \"<integer>\",\n    \"task_size\": \"<string>\"\n  }\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"id\": \"string\",\n  \"name\": \"<string>\",\n  \"description\": \"<string>\",\n  \"sql\": \"<string>\",\n  \"execution\": {\n    \"active\": \"<boolean>\",\n    \"task_count\": \"<integer>\",\n    \"task_size\": \"<string>\"\n  }\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "d9df81c1-a3c2-443c-92af-9db7521d8796",
+          "name": "Delete a pipeline",
+          "request": {
+            "name": "Delete a pipeline",
+            "description": {},
+            "url": {
+              "path": [
+                "v1alpha2",
+                "pipelines",
+                ":pipeline_id"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "pipeline_id",
+                  "description": "(Required) "
+                },
+                {
+                  "description": "Your Decodable account name",
+                  "type": "any",
+                  "value": "{{account}}",
+                  "key": "account"
+                }
+              ]
+            },
+            "method": "DELETE",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "a8255f4f-01bc-4c12-860f-34b3f9682de2",
+              "name": "The pipeline was deleted.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "v1alpha2",
+                    "pipelines",
+                    ":pipeline_id"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "pipeline_id",
+                      "description": "(Required) "
+                    },
+                    {
+                      "description": "Your Decodable account name",
+                      "type": "any",
+                      "value": "{{account}}",
+                      "key": "account"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  }
+                ],
+                "method": "DELETE",
+                "body": {}
+              },
+              "status": "No Content",
+              "code": 204,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "c6351366-698e-4170-8ed1-bb5949dd6785",
+          "name": "Activate a pipeline",
+          "request": {
+            "name": "Activate a pipeline",
+            "description": {
+              "content": "Starts the pipeline, optionally setting task size and count.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "v1alpha2",
+                "pipelines",
+                ":pipeline_id",
+                "activate"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "pipeline_id",
+                  "description": "(Required) "
+                },
+                {
+                  "description": "Your Decodable account name",
+                  "type": "any",
+                  "value": "{{account}}",
+                  "key": "account"
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "method": "POST",
+            "auth": null,
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"active\": \"<boolean>\",\n  \"task_count\": \"<integer>\",\n  \"task_size\": \"<string>\"\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "8969bfe5-042c-45d2-8ccc-d8cb3368a2c5",
+              "name": "The pipeline activation was accepted.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "v1alpha2",
+                    "pipelines",
+                    ":pipeline_id",
+                    "activate"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "pipeline_id",
+                      "description": "(Required) "
+                    },
+                    {
+                      "description": "Your Decodable account name",
+                      "type": "any",
+                      "value": "{{account}}",
+                      "key": "account"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"active\": \"<boolean>\",\n  \"task_count\": \"<integer>\",\n  \"task_size\": \"<string>\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "abba5e55-9686-4300-bd73-2b5490d446bb",
+          "name": "Deactivate a pipeline",
+          "request": {
+            "name": "Deactivate a pipeline",
+            "description": {
+              "content": "Stops the pipeline.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "v1alpha2",
+                "pipelines",
+                ":pipeline_id",
+                "deactivate"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "pipeline_id",
+                  "description": "(Required) "
+                },
+                {
+                  "description": "Your Decodable account name",
+                  "type": "any",
+                  "value": "{{account}}",
+                  "key": "account"
+                }
+              ]
+            },
+            "method": "POST",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "603c7a7c-4b83-4a76-8ec1-5364cbfdeb94",
+              "name": "The pipeline deactivation was accepted.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "v1alpha2",
+                    "pipelines",
+                    ":pipeline_id",
+                    "deactivate"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "pipeline_id",
+                      "description": "(Required) "
+                    },
+                    {
+                      "description": "Your Decodable account name",
+                      "type": "any",
+                      "value": "{{account}}",
+                      "key": "account"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  }
+                ],
+                "method": "POST",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        }
+      ],
+      "event": []
+    }
+  ],
+  "event": [],
+  "variable": [
+    {
+      "description": {
+        "content": "Your Decodable account name",
+        "type": "text/plain"
+      },
+      "type": "any",
+      "value": "acme-01",
+      "key": "account"
+    },
+    {
+      "type": "string",
+      "value": "https://{{account}}.api.decodable.co",
+      "key": "baseUrl"
+    }
+  ],
+  "auth": {
+    "type": "bearer",
+    "bearer": [
+      {
+        "key": "token",
+        "value": "{{bearerToken}}"
+      }
+    ]
+  },
+  "info": {
+    "_postman_id": "5b8cae60-27d4-4c8d-9c92-7aa21460d1d8",
+    "name": "Decodable Control Plane Connections Pipelines API",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "description": {
+      "content": "REST API for the Decodable managed stream-processing platform (built on Apache Flink and Debezium). The control-plane API manages connections, streams, pipelines, secrets, and account-level resources. The control-plane base URL is account-scoped: https://<account>.api.decodable.co. All requests are authenticated with a Bearer access token (the token issued after CLI login, found in ~/.decodable/auth). Endpoints and schemas in this document reflect publicly documented Decodable API behavior; fields not confirmed in public documentation are intentionally omitted rather than fabricated.\n\nContact Support:\n Name: Decodable Support",
+      "type": "text/plain"
+    }
+  }
+}
