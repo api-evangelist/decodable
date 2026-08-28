@@ -7,6 +7,18 @@ description: Decodable is a fully managed stream-processing platform built on Ap
   sources and sinks, transforming data with SQL or custom Flink jobs, and managing
   connections, streams, pipelines, and secrets through a REST API, a CLI, and
   declarative YAML.
+deliveryModel:
+  model: saas
+  open_source: false
+  commercial: true
+  callable_host: true
+  label: Hosted service · you call their endpoint
+  confidence: high
+  source:
+  - openapi
+  - pricing
+  generated: '2026-08-28'
+  method: derived
 accessModel:
   pricing: freemium
   onboarding: self-serve
