@@ -40,7 +40,7 @@ tags:
 - Debezium
 - Real-Time Data
 - Data Pipeline
-- CDC
+- Change Data Capture
 tags_raw:
 - Stream Processing
 - Apache Flink
