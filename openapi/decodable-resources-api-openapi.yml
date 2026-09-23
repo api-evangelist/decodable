@@ -1,7 +1,7 @@
-openapi: 3.0.1
+openapi: 3.2.0
 info:
-  title: Decodable Control Plane Connections Resources API
-  description: 'REST API for the Decodable managed stream-processing platform (built on Apache Flink and Debezium). The control-plane API manages connections, streams, pipelines, secrets, and account-level resources. The control-plane base URL is account-scoped: https://<account>.api.decodable.co. All requests are authenticated with a Bearer access token (the token issued after CLI login, found in ~/.decodable/auth). Endpoints and schemas in this document reflect publicly documented Decodable API behavior; fields not confirmed in public documentation are intentionally omitted rather than fabricated.'
+  title: Decodable Control Plane Resources API
+  description: REST API for the Decodable managed stream-processing platform (built on Apache Flink and Debezium).
   termsOfService: https://www.decodable.co/terms-of-service
   contact:
     name: Decodable Support
