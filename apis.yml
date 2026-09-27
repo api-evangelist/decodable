@@ -47,7 +47,7 @@ tags_raw:
 - Debezium
 - Real Time Data
 - Data Pipelines
-- CDC
+- Change Data Capture
 created: '2026-06-21'
 modified: '2026-06-21'
 specificationVersion: '0.23'

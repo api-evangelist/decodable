@@ -126,13 +126,17 @@ paths:
           description: The connection deactivation was accepted.
 components:
   schemas:
-    ConnectionList:
+    Execution:
       type: object
+      description: Runtime execution settings for a connection or pipeline.
       properties:
-        items:
-          type: array
-          items:
-            $ref: '#/components/schemas/Connection'
+        active:
+          type: boolean
+        task_count:
+          type: integer
+        task_size:
+          type: string
+          description: The task size (e.g. SMALL, MEDIUM, LARGE).
     Connection:
       type: object
       properties:
@@ -162,17 +166,13 @@ components:
           description: Connector-specific configuration properties.
         execution:
           $ref: '#/components/schemas/Execution'
-    Execution:
+    ConnectionList:
       type: object
-      description: Runtime execution settings for a connection or pipeline.
       properties:
-        active:
-          type: boolean
-        task_count:
-          type: integer
-        task_size:
-          type: string
-          description: The task size (e.g. SMALL, MEDIUM, LARGE).
+        items:
+          type: array
+          items:
+            $ref: '#/components/schemas/Connection'
   parameters:
     ConnectionId:
       name: connection_id
