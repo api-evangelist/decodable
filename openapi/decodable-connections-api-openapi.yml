@@ -126,6 +126,13 @@ paths:
           description: The connection deactivation was accepted.
 components:
   schemas:
+    ConnectionList:
+      type: object
+      properties:
+        items:
+          type: array
+          items:
+            $ref: '#/components/schemas/Connection'
     Execution:
       type: object
       description: Runtime execution settings for a connection or pipeline.
@@ -166,13 +173,6 @@ components:
           description: Connector-specific configuration properties.
         execution:
           $ref: '#/components/schemas/Execution'
-    ConnectionList:
-      type: object
-      properties:
-        items:
-          type: array
-          items:
-            $ref: '#/components/schemas/Connection'
   parameters:
     ConnectionId:
       name: connection_id

@@ -110,6 +110,13 @@ paths:
                 $ref: '#/components/schemas/Token'
 components:
   schemas:
+    StreamList:
+      type: object
+      properties:
+        items:
+          type: array
+          items:
+            $ref: '#/components/schemas/Stream'
     Token:
       type: object
       properties:
@@ -129,13 +136,6 @@ components:
         schema_v2:
           type: object
           description: The stream's typed schema definition.
-    StreamList:
-      type: object
-      properties:
-        items:
-          type: array
-          items:
-            $ref: '#/components/schemas/Stream'
   parameters:
     StreamId:
       name: stream_id
