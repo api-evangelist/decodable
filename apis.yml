@@ -183,6 +183,9 @@ apis:
   - type: Documentation
     url: https://docs.decodable.co/declarative/overview.html
 common:
+- type: CapabilityMap
+  url: capabilities/decodable-capability-edges.yml
+  name: Decodable Business Capability Map
 - type: AgenticAccess
   url: agentic-access/decodable-agentic-access.yml
 - type: TrustCenter

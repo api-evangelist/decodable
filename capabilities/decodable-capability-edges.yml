@@ -1,0 +1,46 @@
+slug: decodable
+provider: Decodable
+generated_by: planning/capability-mapping/scripts/classify_capabilities.py
+model: claude-opus-5
+frame:
+- Software & Technology
+min_confidence: 0.7
+capability_model:
+  source: https://github.com/vincentmakes/turbo-ea-capabilities
+  license: CC-BY-4.0
+  attribution: Turbo EA Capabilities by Vincent Verdet — Turbo EA, https://github.com/vincentmakes/turbo-ea-capabilities,
+    CC BY 4.0
+  notice: NOTICE
+edge_count: 3
+edges:
+- tag: Connections
+  spec_file: decodable-connections-api-openapi.yml
+  capability_id: BC-610
+  capability_id_l1: BC-610
+  capability_name: Information & Data Management
+  confidence: 0.7
+  evidence: '''Create a connection'', ''Activate a connection'' — ''REST API for the Decodable managed
+    stream-processing platform (built on Apache Flink and Debezium)'' for ''connecting sources and sinks'''
+  reason: Connections define source/sink data integration endpoints for real-time data pipelines — an
+    information & data management (data engineering/architecture) capability. No candidate sub-capability
+    names data integration precisely, so only L1 is asserted.
+- tag: Pipelines
+  spec_file: decodable-pipelines-api-openapi.yml
+  capability_id: BC-610
+  capability_id_l1: BC-610
+  capability_name: Information & Data Management
+  confidence: 0.7
+  evidence: '''List pipelines'', ''Create a pipeline'', ''Activate a pipeline'' — platform lets teams
+    ''build real-time data pipelines ... transforming data with SQL or custom Flink jobs'''
+  reason: Pipeline lifecycle operations realise data transformation/integration under Information & Data
+    Management. Held at L1 as no candidate L2 covers streaming data pipeline engineering.
+- tag: Secrets
+  spec_file: decodable-secrets-api-openapi.yml
+  capability_id: BC-4210.60
+  capability_id_l1: BC-4210
+  capability_name: Configuration & Secrets Management
+  confidence: 0.7
+  evidence: '''Create a secret'', ''Update a secret'', schemas ''SecretList, Secret'' — vendor ''managing
+    connections, streams, pipelines, and secrets through a REST API'''
+  reason: CRUD over stored secrets/credentials consumed by running pipeline services maps to Configuration
+    & Secrets Management. Some chance this is better read as generic IAM/credential storage, hence 0.7.
