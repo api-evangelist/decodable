@@ -123,21 +123,7 @@ paths:
         '200':
           description: The pipeline deactivation was accepted.
 components:
-  parameters:
-    PipelineId:
-      name: pipeline_id
-      in: path
-      required: true
-      schema:
-        type: string
   schemas:
-    PipelineList:
-      type: object
-      properties:
-        items:
-          type: array
-          items:
-            $ref: '#/components/schemas/Pipeline'
     Execution:
       type: object
       description: Runtime execution settings for a connection or pipeline.
@@ -164,6 +150,20 @@ components:
           description: The Decodable SQL that defines the transformation.
         execution:
           $ref: '#/components/schemas/Execution'
+    PipelineList:
+      type: object
+      properties:
+        items:
+          type: array
+          items:
+            $ref: '#/components/schemas/Pipeline'
+  parameters:
+    PipelineId:
+      name: pipeline_id
+      in: path
+      required: true
+      schema:
+        type: string
   securitySchemes:
     bearerAuth:
       type: http
