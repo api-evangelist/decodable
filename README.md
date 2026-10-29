@@ -1,4 +1,4 @@
-# Decodable (decodable)
+# Decodable
 
 <!-- API-EVANGELIST-PROVENANCE:BEGIN -->
 > ### About this repository
@@ -66,142 +66,126 @@
 
 Decodable is a fully managed stream-processing platform built on Apache Flink and Debezium. It lets teams build real-time data pipelines by connecting sources and sinks, transforming data with SQL or custom Flink jobs, and managing connections, streams, pipelines, and secrets through a REST API, a CLI, and declarative YAML.
 
-**APIs.json:** [https://raw.githubusercontent.com/api-evangelist/decodable/refs/heads/main/apis.yml](https://raw.githubusercontent.com/api-evangelist/decodable/refs/heads/main/apis.yml)
+**Areas:** Stream Processing · Apache Flink · Debezium · Real-Time Data · Data Pipeline · Change Data Capture
 
-## Tags
+## Decodable on APIs.io
 
-- Stream Processing
-- Apache Flink
-- Debezium
-- Real Time Data
-- Data Pipelines
-- CDC
+Everything profiled for Decodable is published on APIs.io rather than in this repository. Start at the provider page — **[apis.io/providers/decodable/](https://apis.io/providers/decodable/)** — or go straight to one of the APIs or properties below.
 
-## Timestamps
+### APIs (5)
 
-- **Created:** 2026-06-21
-- **Modified:** 2026-06-21
+- [Decodable Connections API](https://apis.io/apis/decodable/decodable-connections-api/) — Source and sink connectors between Decodable and external systems.
+- [Decodable Pipelines API](https://apis.io/apis/decodable/decodable-pipelines-api/) — SQL or custom Apache Flink transformations over streams.
+- [Decodable Resources API](https://apis.io/apis/decodable/decodable-resources-api/) — Account-level and control-plane resource endpoints.
+- [Decodable Secrets API](https://apis.io/apis/decodable/decodable-secrets-api/) — Securely stored credentials referenced by connections.
+- [Decodable Streams API](https://apis.io/apis/decodable/decodable-streams-api/) — Typed, schema-bearing channels that carry records.
 
-## APIs
+### Published properties
 
-### Decodable Connections API
+Each property below is a page on APIs.io carrying the machine-readable artifact and what it says.
 
-Manage connections that move data between Decodable streams and external source/sink systems (Kafka, Postgres CDC, S3, REST, and more), including create, list, get, update, delete, activate, and deactivate.
+#### Agentic access (1)
 
-- **Human URL:** [https://docs.decodable.co/api/the-decodable-apis.html](https://docs.decodable.co/api/the-decodable-apis.html)
-- **Base URL:** `https://<account>.api.decodable.co/v1alpha2`
+Which operations an agent can call, which act, and which need a human in the loop.
 
-#### Tags
+- [Decodable Agentic Access](https://apis.io/agentic-access/decodable/decodable-agentic-access/)
 
-- Connections
-- Connectors
-- Sources
-- Sinks
+#### Collections (6)
 
-#### Properties
+Postman and Open Collection request collections.
 
-- [Documentation](https://docs.decodable.co/connect.html)
-- [API Reference](https://docs.decodable.co/api/the-decodable-apis.html)
-- [OpenAPI](openapi/decodable-openapi.yml) — [OpenAPI Specification](https://spec.openapis.org/oas/latest.html)
-- [Postman Collection](collections/decodable.postman_collection.json) — [Postman Collection 2.1](https://schema.getpostman.com/json/collection/v2.1.0/collection.json)
-- [Open Collection](collections/decodable.opencollection.json) — [Open Collection 1.0](https://schema.opencollection.com/opencollection/v1.0.0.json)
+- [Decodable Control Plane API](https://apis.io/collections/decodable/open-decodable/)
+- [Decodable Control Plane Connections API](https://apis.io/collections/decodable/open-decodable-connections-api/)
+- [Decodable Control Plane Connections Pipelines API](https://apis.io/collections/decodable/open-decodable-pipelines-api/)
+- [Decodable Control Plane Connections Resources API](https://apis.io/collections/decodable/open-decodable-resources-api/)
+- [Decodable Control Plane Connections Secrets API](https://apis.io/collections/decodable/open-decodable-secrets-api/)
+- [Decodable Control Plane Connections Streams API](https://apis.io/collections/decodable/open-decodable-streams-api/)
 
-### Decodable Streams API
+#### Security (4)
 
-Create and manage streams - the typed, schema-bearing channels that carry records between connections and pipelines - and request preview tokens to sample live stream data.
+Authentication, trust centre, and vulnerability disclosure.
 
-- **Human URL:** [https://docs.decodable.co/api/the-decodable-apis.html](https://docs.decodable.co/api/the-decodable-apis.html)
-- **Base URL:** `https://<account>.api.decodable.co/v1alpha2`
+- [Decodable Authentication](https://apis.io/security/decodable/decodable-authentication/)
+- [Decodable Domain Security](https://apis.io/security/decodable/decodable-domain-security/)
+- [Decodable Trust Center](https://apis.io/security/decodable/decodable-trust-center/)
+- [Decodable Vulnerability Disclosure](https://apis.io/security/decodable/decodable-vulnerability-disclosure/)
 
-#### Tags
+#### Plans and pricing (1)
 
-- Streams
-- Schemas
-- Real Time Data
+Published plans, tiers and prices.
 
-#### Properties
+- [Decodable Plans Pricing](https://apis.io/plans/decodable/decodable-plans-pricing/)
 
-- [Documentation](https://docs.decodable.co/streams.html)
-- [API Reference](https://docs.decodable.co/api/the-decodable-apis.html)
-- [OpenAPI](openapi/decodable-openapi.yml) — [OpenAPI Specification](https://spec.openapis.org/oas/latest.html)
-- [Postman Collection](collections/decodable.postman_collection.json) — [Postman Collection 2.1](https://schema.getpostman.com/json/collection/v2.1.0/collection.json)
-- [Open Collection](collections/decodable.opencollection.json) — [Open Collection 1.0](https://schema.opencollection.com/opencollection/v1.0.0.json)
+#### Rate limits (1)
 
-### Decodable Pipelines API
+Published request limits.
 
-Create and manage pipelines that transform stream data using Decodable SQL or custom Apache Flink jobs, including activate, deactivate, and task-size/count execution control.
+- [Decodable Rate Limits](https://apis.io/rate-limits/decodable/decodable-rate-limits/)
 
-- **Human URL:** [https://docs.decodable.co/api/the-decodable-apis.html](https://docs.decodable.co/api/the-decodable-apis.html)
-- **Base URL:** `https://<account>.api.decodable.co/v1alpha2`
+#### FinOps (1)
 
-#### Tags
+What the API costs to run, by operation.
 
-- Pipelines
-- SQL
-- Apache Flink
-- Transformations
+- [Decodable Finops](https://apis.io/finops/decodable/decodable-finops/)
 
-#### Properties
+## Where to find this API
 
-- [Documentation](https://docs.decodable.co/pipelines.html)
-- [API Reference](https://docs.decodable.co/api/the-decodable-apis.html)
-- [OpenAPI](openapi/decodable-openapi.yml) — [OpenAPI Specification](https://spec.openapis.org/oas/latest.html)
-- [Postman Collection](collections/decodable.postman_collection.json) — [Postman Collection 2.1](https://schema.getpostman.com/json/collection/v2.1.0/collection.json)
-- [Open Collection](collections/decodable.opencollection.json) — [Open Collection 1.0](https://schema.opencollection.com/opencollection/v1.0.0.json)
+Links to the company's own pages. This repository publishes no copy of their specifications — the canonical document is theirs and lives at the URLs below.
 
-### Decodable Secrets API
-
-Securely store and manage the sensitive credentials (passwords, keys, tokens) that connections reference when authenticating to external systems.
-
-- **Human URL:** [https://docs.decodable.co/api/the-decodable-apis.html](https://docs.decodable.co/api/the-decodable-apis.html)
-- **Base URL:** `https://<account>.api.decodable.co/v1alpha2`
-
-#### Tags
-
-- Secrets
-- Credentials
-- Security
-
-#### Properties
-
-- [Documentation](https://docs.decodable.co/secrets.html)
-- [API Reference](https://docs.decodable.co/api/the-decodable-apis.html)
-- [OpenAPI](openapi/decodable-openapi.yml) — [OpenAPI Specification](https://spec.openapis.org/oas/latest.html)
-- [Postman Collection](collections/decodable.postman_collection.json) — [Postman Collection 2.1](https://schema.getpostman.com/json/collection/v2.1.0/collection.json)
-- [Open Collection](collections/decodable.opencollection.json) — [Open Collection 1.0](https://schema.opencollection.com/opencollection/v1.0.0.json)
-
-### Decodable Resources API
-
-Account-level and cross-cutting control-plane endpoints, including retrieving account details (and the data-plane hostname) and the declarative apply model that manages connections, streams, pipelines, and secrets as versioned YAML resources.
-
-- **Human URL:** [https://docs.decodable.co/api/the-decodable-apis.html](https://docs.decodable.co/api/the-decodable-apis.html)
-- **Base URL:** `https://<account>.api.decodable.co/v1alpha2`
-
-#### Tags
-
-- Resources
-- Accounts
-- Declarative
-
-#### Properties
-
-- [Documentation](https://docs.decodable.co/declarative/overview.html)
-- [API Reference](https://docs.decodable.co/api/the-decodable-apis.html)
-- [OpenAPI](openapi/decodable-openapi.yml) — [OpenAPI Specification](https://spec.openapis.org/oas/latest.html)
-- [Postman Collection](collections/decodable.postman_collection.json) — [Postman Collection 2.1](https://schema.getpostman.com/json/collection/v2.1.0/collection.json)
-- [Open Collection](collections/decodable.opencollection.json) — [Open Collection 1.0](https://schema.opencollection.com/opencollection/v1.0.0.json)
-
-## Common Properties
-
-- [GitHub Organization](https://github.com/decodableco)
-- [LinkedIn](https://www.linkedin.com/company/decodable)
 - [Website](https://www.decodable.co)
 - [Documentation](https://docs.decodable.co)
-- [Plans](plans/decodable-plans-pricing.yml)
-- [Rate Limits](rate-limits/decodable-rate-limits.yml)
-- [Fin Ops](finops/decodable-finops.yml)
+- [Blog](https://www.decodable.co/blog/rss.xml)
+- [GitHub](https://github.com/decodableco)
 
-## Maintainers
+## API Evangelist rating
 
-**FN:** Kin Lane
-**Email:** kin@apievangelist.com
+**Kin Score 30.0** — thin · rubric 0.24.0 · scored 2026-10-17
+
+| Facet | Score |
+|---|---|
+| Discoverability | 66.1 |
+| Contract quality | 48.2 |
+| Contract governance | 0.0 |
+| Operational transparency | 10.5 |
+| Developer ergonomics | 32.1 |
+| Access clarity | 15.8 |
+
+**Agent readiness 17.9** — agent-aware
+
+| Agent-readiness dimension | Result |
+|---|---|
+| Spec Presence | yes |
+| Agentic Access | derived (partial credit) |
+| Reversibility Documented | — |
+| MCP Server | — |
+| Auth Clarity | bearer (partial credit) |
+| Idempotency | — |
+| Error Semantics | — |
+| OpenAPI Examples | — |
+| Rate Limit Signal | derived (partial credit) |
+| Event Surface Described | — |
+| Agent Skills | — |
+| Well Known Catalog | — |
+| Consent Identity | — |
+| Agent Card | — |
+| Dry Run Mode | — |
+| Delegated Identity | — |
+| Protected Resource Metadata | — |
+| Dynamic Client Registration | — |
+| Agentic Commerce | — |
+
+**Regulatory alignment 22.5** — Horizontal (data, software, accessibility, platform)
+
+The rubric is published at [github.com/api-evangelist/kin-score](https://github.com/api-evangelist/kin-score). The per-check breakdown behind these numbers — which checks were earned, partial or missed — along with score history and how this provider compares to its peers, is available at [apis.io/providers/decodable/](https://apis.io/providers/decodable/).
+
+## How this profile is made
+
+API Evangelist profiles a company's public API surface the way a developer would find it: the website, developer portal and documentation, the specifications it publishes, its public repositories, and its pricing, status and changelog pages. From that it derives the properties above — contracts split per API, workflows, schemas, collections, governance rules, plans and rate limits — and scores them against the published [Kin Score rubric](https://github.com/api-evangelist/kin-score).
+
+The artifacts are published on [APIs.io](https://apis.io), not in this repository. This repository is the public record for Decodable: the place to say something is wrong, missing or out of date, and to ask for a re-score or a removal.
+
+## Open an issue
+
+- **Something about this listing** — a wrong description, a missing API, a stale artifact or a question about the rating: [open an issue on this repository](https://github.com/api-evangelist/decodable/issues/new).
+- **A new API, or one that is not in the catalog yet** — [submit it on APIs.io](https://apis.io/add/).
+- **Anything else** — [the APIs.io inbox](https://github.com/api-search/inbox/issues/new) or [info@apievangelist.com](mailto:info@apievangelist.com).
